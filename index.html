@@ -1,276 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>World Vintage Car Museum</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Vintage Car Collection (1800s–2000s)</title>
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
-      color: #f2f2f2;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Segoe UI',Arial,sans-serif;
+      background:linear-gradient(to bottom,#0b0b0b,#1e1e1e);
+      color:#f5f5f5;
     }
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover no-repeat;
+    header{
+      padding:70px 20px;
+      text-align:center;
+      background:linear-gradient(90deg,#000,#222,#000);
     }
-    header h1 {
-      font-size: 3.2rem;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 8px #000;
+    header h1{font-size:3.2rem;margin-bottom:10px}
+    header p{font-size:1.2rem;color:#ccc}
+
+    /* Filters */
+    .filters{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+      justify-content:center;
+      padding:25px;
+      background:#111;
     }
-    header p {
-      font-size: 1.2rem;
-      color: #e0e0e0;
-      text-shadow: 1px 1px 6px #000;
+    select{
+      padding:12px;
+      border-radius:10px;
+      border:none;
+      min-width:220px;
+      font-size:1rem;
     }
 
-    .filters {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 25px;
-      background: #111;
+    /* Cards */
+    .container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+      padding:40px;
     }
-    select, input {
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      min-width: 220px;
-      font-size: 1rem;
+    .card{
+      background:#1f1f1f;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 12px 35px rgba(0,0,0,.8);
+      transition:.3s;
     }
+    .card:hover{transform:translateY(-10px)}
+    .card img{width:100%;height:220px;object-fit:cover}
+    .content{padding:20px}
+    .content h2{margin:0 0 5px}
+    .meta{display:flex;justify-content:space-between;color:#9ad1ff;font-size:.9rem}
+    .price{color:#ffcc00;font-weight:bold;margin:8px 0}
+    ul{padding-left:18px}
+    .history{font-size:.9rem;color:#ccc;line-height:1.5}
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 40px;
-    }
+    /* Feedback */
+    .feedback{background:#0f0f0f;padding:60px 20px}
+    .feedback h2{text-align:center;margin-bottom:25px}
+    .feedback form{max-width:650px;margin:auto;display:grid;gap:15px}
+    input,textarea{padding:14px;border-radius:12px;border:none;font-size:1rem}
+    textarea{min-height:130px}
+    button{padding:14px;border:none;border-radius:12px;background:#ffcc00;font-weight:bold;cursor:pointer}
+    button:hover{background:#ffd633}
 
-    .card {
-      background: #1e1e1e;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.8);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 50px rgba(0,0,0,1);
-    }
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .card-content {
-      padding: 20px;
-    }
-    .card h2 { margin-top: 0; }
-    .meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.95rem;
-      color: #9ad1ff;
-    }
-    .price {
-      color: #ffcc00;
-      font-weight: bold;
-      margin: 8px 0;
-    }
-    ul { padding-left: 18px; }
-    .history {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-top: 10px;
-      line-height: 1.5;
-    }
-
-    .feedback {
-      background: #0f0f0f;
-      padding: 50px 20px;
-    }
-    .feedback h2 {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-    .feedback form {
-      max-width: 650px;
-      margin: auto;
-      display: grid;
-      gap: 15px;
-    }
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-      padding: 14px;
-      border-radius: 12px;
-      border: none;
-    }
-    button {
-      padding: 14px;
-      border-radius: 12px;
-      border: none;
-      background: #ffcc00;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover { background: #ffd633; }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #aaa;
-      background: #000;
-    }
+    footer{text-align:center;padding:30px;background:#000;color:#aaa}
   </style>
 </head>
 <body>
 
 <header>
-  <h1>World Vintage Car Museum</h1>
-  <p>A global collection of legendary vintage automobiles</p>
+  <h1>Global Vintage Car Collection</h1>
+  <p>More than 15 legendary automobiles from the 1800s to the 2000s</p>
 </header>
 
 <section class="filters">
-  <select id="countryFilter">
-    <option value="all">All Countries</option>
-    <option value="USA">USA</option>
-    <option value="UK">UK</option>
-    <option value="Germany">Germany</option>
-    <option value="Italy">Italy</option>
-    <option value="Japan">Japan</option>
-  </select>
-
   <select id="eraFilter">
     <option value="all">All Eras</option>
+    <option value="1800">1800s</option>
+    <option value="1900">1900s</option>
     <option value="1930">1930s</option>
     <option value="1950">1950s</option>
     <option value="1960">1960s</option>
     <option value="1970">1970s</option>
     <option value="1980">1980s</option>
+    <option value="1990">1990s</option>
+    <option value="2000">2000s</option>
+  </select>
+
+  <select id="countryFilter">
+    <option value="all">All Countries</option>
+    <option value="Germany">Germany</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+    <option value="Italy">Italy</option>
+    <option value="Japan">Japan</option>
+    <option value="France">France</option>
   </select>
 </section>
 
-<section class="container" id="carContainer">
+<section class="container">
 
-  <div class="card" data-country="USA" data-era="1930">
-    <img src="https://images.unsplash.com/photo-1542362567-b07e54358753" />
-    <div class="card-content">
-      <h2>Ford Model A</h2>
-      <div class="meta"><span>USA</span><span>1927–1931</span></div>
-      <p class="price">$20,000 – $35,000</p>
-      <ul>
-        <li>3.3L Inline-4 Engine</li>
-        <li>Manual Transmission</li>
-        <li>Steel Body</li>
-      </ul>
-      <p class="history">The Ford Model A succeeded the Model T and brought modern styling and safety to mass-produced cars.</p>
-    </div>
-  </div>
+<!-- 1 -->
+<div class="card" data-era="1800" data-country="Germany">
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+<div class="content">
+<h2>Benz Patent Motorwagen</h2>
+<div class="meta"><span>Germany</span><span>1886</span></div>
+<p class="price">$1M+</p>
+<ul><li>Single-cylinder</li><li>0.75 HP</li><li>First automobile</li></ul>
+<p class="history">Karl Benz's invention marked the birth of the modern automobile.</p>
+</div></div>
 
-  <div class="card" data-country="UK" data-era="1960">
-    <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023" />
-    <div class="card-content">
-      <h2>Jaguar E-Type</h2>
-      <div class="meta"><span>UK</span><span>1961–1975</span></div>
-      <p class="price">$120,000 – $200,000</p>
-      <ul>
-        <li>Inline-6 Engine</li>
-        <li>150 mph Top Speed</li>
-        <li>Disc Brakes</li>
-      </ul>
-      <p class="history">Considered one of the most beautiful cars ever made, praised even by Enzo Ferrari.</p>
-    </div>
-  </div>
+<!-- 2 -->
+<div class="card" data-era="1900" data-country="USA">
+<img src="https://images.unsplash.com/photo-1542362567-b07e54358753">
+<div class="content">
+<h2>Ford Model T</h2>
+<div class="meta"><span>USA</span><span>1908–1927</span></div>
+<p class="price">$25k–$40k</p>
+<ul><li>2.9L I4</li><li>Mass production</li><li>Affordable car</li></ul>
+<p class="history">Made car ownership accessible to the masses.</p>
+</div></div>
 
-  <div class="card" data-country="Germany" data-era="1950">
-    <img src="https://images.unsplash.com/photo-1605559424843-9e4c0e4c3f03" />
-    <div class="card-content">
-      <h2>Volkswagen Beetle</h2>
-      <div class="meta"><span>Germany</span><span>1938–2003</span></div>
-      <p class="price">$15,000 – $30,000</p>
-      <ul>
-        <li>Rear-Engine</li>
-        <li>Air-Cooled</li>
-        <li>Iconic Design</li>
-      </ul>
-      <p class="history">One of the most produced cars in history, symbolizing affordable mobility worldwide.</p>
-    </div>
-  </div>
+<!-- 3 -->
+<div class="card" data-era="1930" data-country="USA">
+<img src="https://images.unsplash.com/photo-1511910849309-0dffb8785146">
+<div class="content">
+<h2>Cadillac V16</h2>
+<div class="meta"><span>USA</span><span>1930</span></div>
+<p class="price">$500k+</p>
+<ul><li>V16 engine</li><li>Luxury sedan</li><li>Art Deco design</li></ul>
+<p class="history">Symbol of American luxury during the Great Depression.</p>
+</div></div>
 
-  <div class="card" data-country="Italy" data-era="1960">
-    <img src="https://images.unsplash.com/photo-1511910849309-0dffb8785146" />
-    <div class="card-content">
-      <h2>Ferrari 250 GTO</h2>
-      <div class="meta"><span>Italy</span><span>1962–1964</span></div>
-      <p class="price">$40M+</p>
-      <ul>
-        <li>3.0L V12 Engine</li>
-        <li>Racing Heritage</li>
-        <li>Ultra-Rare</li>
-      </ul>
-      <p class="history">One of the rarest and most valuable cars ever built, dominating GT racing.</p>
-    </div>
-  </div>
+<!-- 4 -->
+<div class="card" data-era="1950" data-country="UK">
+<img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023">
+<div class="content">
+<h2>Jaguar XK120</h2>
+<div class="meta"><span>UK</span><span>1948–1954</span></div>
+<p class="price">$100k+</p>
+<ul><li>3.4L I6</li><li>Fastest of its time</li><li>Sports luxury</li></ul>
+<p class="history">Post-war British engineering masterpiece.</p>
+</div></div>
 
-  <div class="card" data-country="Japan" data-era="1980">
-    <img src="https://images.unsplash.com/photo-1617814077635-2f2c932a0b8f" />
-    <div class="card-content">
-      <h2>Toyota AE86</h2>
-      <div class="meta"><span>Japan</span><span>1983–1987</span></div>
-      <p class="price">$25,000 – $45,000</p>
-      <ul>
-        <li>1.6L Inline-4</li>
-        <li>Rear-Wheel Drive</li>
-        <li>Lightweight Chassis</li>
-      </ul>
-      <p class="history">A cult classic celebrated for its driving purity and motorsport influence.</p>
-    </div>
-  </div>
+<!-- 5 -->
+<div class="card" data-era="1950" data-country="Germany">
+<img src="https://images.unsplash.com/photo-1605559424843-9e4c0e4c3f03">
+<div class="content">
+<h2>Mercedes 300SL</h2>
+<div class="meta"><span>Germany</span><span>1954</span></div>
+<p class="price">$1.2M+</p>
+<ul><li>Gullwing doors</li><li>Fuel injection</li><li>Racing heritage</li></ul>
+<p class="history">One of the most iconic cars ever built.</p>
+</div></div>
+
+<!-- 6 -->
+<div class="card" data-era="1960" data-country="Italy">
+<img src="https://images.unsplash.com/photo-1617814092784-6b27f9a7aefc">
+<div class="content">
+<h2>Ferrari 250 GTO</h2>
+<div class="meta"><span>Italy</span><span>1962</span></div>
+<p class="price">$40M+</p>
+<ul><li>V12 engine</li><li>Racing legend</li><li>Ultra rare</li></ul>
+<p class="history">The most valuable collector car in history.</p>
+</div></div>
+
+<!-- 7 -->
+<div class="card" data-era="1960" data-country="Italy">
+<img src="https://images.unsplash.com/photo-1617814068732-0b56f14c6d19">
+<div class="content">
+<h2>Lamborghini Miura</h2>
+<div class="meta"><span>Italy</span><span>1966</span></div>
+<p class="price">$2M+</p>
+<ul><li>Mid-engine V12</li><li>Supercar pioneer</li><li>Exotic styling</li></ul>
+<p class="history">Considered the first true supercar.</p>
+</div></div>
+
+<!-- 8 -->
+<div class="card" data-era="1970" data-country="USA">
+<img src="https://images.unsplash.com/photo-1617814077635-2f2c932a0b8f">
+<div class="content">
+<h2>Ford Mustang Boss 302</h2>
+<div class="meta"><span>USA</span><span>1969</span></div>
+<p class="price">$120k+</p>
+<ul><li>V8 muscle</li><li>Track focused</li><li>Iconic Mustang</li></ul>
+<p class="history">Built to dominate Trans-Am racing.</p>
+</div></div>
+
+<!-- 9 -->
+<div class="card" data-era="1970" data-country="UK">
+<img src="https://images.unsplash.com/photo-1605559424843-9e4c0e4c3f03">
+<div class="content">
+<h2>Rolls-Royce Silver Shadow</h2>
+<div class="meta"><span>UK</span><span>1965</span></div>
+<p class="price">$40k+</p>
+<ul><li>Luxury sedan</li><li>V8 engine</li><li>Hand-built</li></ul>
+<p class="history">Redefined modern luxury motoring.</p>
+</div></div>
+
+<!-- 10 -->
+<div class="card" data-era="1980" data-country="Germany">
+<img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023">
+<div class="content">
+<h2>BMW M3 E30</h2>
+<div class="meta"><span>Germany</span><span>1986</span></div>
+<p class="price">$150k+</p>
+<ul><li>High-rev engine</li><li>Motorsport icon</li><li>Lightweight</li></ul>
+<p class="history">One of the greatest driving cars ever made.</p>
+</div></div>
+
+<!-- 11 -->
+<div class="card" data-era="1980" data-country="Japan">
+<img src="https://images.unsplash.com/photo-1617814068732-0b56f14c6d19">
+<div class="content">
+<h2>Toyota AE86</h2>
+<div class="meta"><span>Japan</span><span>1983</span></div>
+<p class="price">$35k+</p>
+<ul><li>Lightweight</li><li>RWD</li><li>Drift icon</li></ul>
+<p class="history">Cult classic loved by driving purists.</p>
+</div></div>
+
+<!-- 12 -->
+<div class="card" data-era="1990" data-country="Japan">
+<img src="https://images.unsplash.com/photo-1617814077635-2f2c932a0b8f">
+<div class="content">
+<h2>Toyota Supra MK4</h2>
+<div class="meta"><span>Japan</span><span>1993</span></div>
+<p class="price">$120k+</p>
+<ul><li>2JZ engine</li><li>Twin turbo</li><li>Tuning legend</li></ul>
+<p class="history">A 90s performance icon.</p>
+</div></div>
+
+<!-- 13 -->
+<div class="card" data-era="1990" data-country="USA">
+<img src="https://images.unsplash.com/photo-1542362567-b07e54358753">
+<div class="content">
+<h2>Dodge Viper RT/10</h2>
+<div class="meta"><span>USA</span><span>1992</span></div>
+<p class="price">$80k+</p>
+<ul><li>V10 engine</li><li>Raw performance</li><li>American supercar</li></ul>
+<p class="history">Built with brute force and no compromises.</p>
+</div></div>
+
+<!-- 14 -->
+<div class="card" data-era="2000" data-country="Italy">
+<img src="https://images.unsplash.com/photo-1511910849309-0dffb8785146">
+<div class="content">
+<h2>Ferrari Enzo</h2>
+<div class="meta"><span>Italy</span><span>2002</span></div>
+<p class="price">$3M+</p>
+<ul><li>F1 technology</li><li>V12</li><li>Carbon fiber</li></ul>
+<p class="history">Ferrari's tribute to its founder.</p>
+</div></div>
+
+<!-- 15 -->
+<div class="card" data-era="2000" data-country="USA">
+<img src="https://images.unsplash.com/photo-1605559424843-9e4c0e4c3f03">
+<div class="content">
+<h2>Ford GT</h2>
+<div class="meta"><span>USA</span><span>2005</span></div>
+<p class="price">$400k+</p>
+<ul><li>Supercharged V8</li><li>Le Mans heritage</li><li>Modern classic</li></ul>
+<p class="history">Modern homage to the legendary GT40.</p>
+</div></div>
 
 </section>
 
 <section class="feedback">
-  <h2>Visitor Comments & Feedback</h2>
+  <h2>Visitor Feedback & Comments</h2>
   <form onsubmit="submitFeedback(event)">
-    <input type="text" placeholder="Your Name" required />
-    <textarea placeholder="Share your feedback or favorite vintage car..." required></textarea>
-    <button type="submit">Send Feedback</button>
+    <input type="text" placeholder="Your Name" required>
+    <textarea placeholder="Share your thoughts about vintage cars..." required></textarea>
+    <button type="submit">Submit Feedback</button>
   </form>
 </section>
 
 <footer>
-  © 2025 World Vintage Car Museum | Preserving Automotive History
+  © 2025 Global Vintage Car Museum | Automotive History Preserved
 </footer>
 
 <script>
-  const countryFilter = document.getElementById('countryFilter');
-  const eraFilter = document.getElementById('eraFilter');
-  const cards = document.querySelectorAll('.card');
+  const eraFilter=document.getElementById('eraFilter');
+  const countryFilter=document.getElementById('countryFilter');
+  const cards=document.querySelectorAll('.card');
 
-  function applyFilters() {
-    const country = countryFilter.value;
-    const era = eraFilter.value;
-
-    cards.forEach(card => {
-      const matchCountry = country === 'all' || card.dataset.country === country;
-      const matchEra = era === 'all' || card.dataset.era === era;
-      card.style.display = matchCountry && matchEra ? 'block' : 'none';
+  function applyFilters(){
+    const era=eraFilter.value;
+    const country=countryFilter.value;
+    cards.forEach(card=>{
+      const okEra=era==='all'||card.dataset.era===era;
+      const okCountry=country==='all'||card.dataset.country===country;
+      card.style.display=(okEra&&okCountry)?'block':'none';
     });
   }
+  eraFilter.addEventListener('change',applyFilters);
+  countryFilter.addEventListener('change',applyFilters);
 
-  countryFilter.addEventListener('change', applyFilters);
-  eraFilter.addEventListener('change', applyFilters);
-
-  function submitFeedback(e) {
+  function submitFeedback(e){
     e.preventDefault();
-    alert('Thank you for sharing your thoughts! 🚗');
+    alert('Thank you for your feedback! 🚗');
     e.target.reset();
   }
 </script>
