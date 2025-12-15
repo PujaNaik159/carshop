@@ -2,32 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Early Vintage Cars & Carriages (1700s–1800s)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Vintage Car Collection (1800s–2000s)</title>
   <style>
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:'Segoe UI',Arial,sans-serif;
-      background:linear-gradient(to bottom,#0b0b0b,#1e1e1e);
-      color:#f5f5f5;
+      font-family:'Georgia',serif;
+      background:linear-gradient(#1a1a1a,#000);
+      color:#f4f4f4;
     }
     header{
-      padding:70px 20px;
+      background:url('https://images.unsplash.com/photo-1520975922284-9a1bcd9c28b4') center/cover no-repeat;
+      padding:80px 20px;
       text-align:center;
-      background:linear-gradient(90deg,#000,#222,#000);
     }
-    header h1{font-size:3.2rem;margin-bottom:10px}
-    header p{font-size:1.2rem;color:#ccc}
+    header h1{font-size:3rem;margin-bottom:10px}
+    header p{font-size:1.2rem;background:rgba(0,0,0,.6);display:inline-block;padding:10px 20px;border-radius:10px}
 
-    /* Filters */
     .filters{
       display:flex;
       flex-wrap:wrap;
       gap:15px;
       justify-content:center;
-      padding:25px;
       background:#111;
+      padding:25px;
     }
     select{
       padding:12px;
@@ -37,18 +36,18 @@
       font-size:1rem;
     }
 
-    /* Cards */
     .container{
+      padding:40px;
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:30px;
-      padding:40px;
     }
+
     .card{
       background:#1f1f1f;
-      border-radius:22px;
+      border-radius:20px;
       overflow:hidden;
-      box-shadow:0 12px 35px rgba(0,0,0,.8);
+      box-shadow:0 12px 30px rgba(0,0,0,.7);
       transition:.3s;
     }
     .card:hover{transform:translateY(-10px)}
@@ -56,256 +55,252 @@
     .content{padding:20px}
     .content h2{margin:0 0 5px}
     .meta{display:flex;justify-content:space-between;color:#9ad1ff;font-size:.9rem}
-    .price{color:#ffcc00;font-weight:bold;margin:8px 0}
+    .price{color:#ffd700;font-weight:bold;margin:8px 0}
     ul{padding-left:18px}
     .history{font-size:.9rem;color:#ccc;line-height:1.5}
 
-    /* Feedback */
-    .feedback{background:#0f0f0f;padding:60px 20px}
+    .feedback{
+      background:#0d0d0d;
+      padding:60px 20px;
+    }
     .feedback h2{text-align:center;margin-bottom:25px}
     .feedback form{max-width:650px;margin:auto;display:grid;gap:15px}
     input,textarea{padding:14px;border-radius:12px;border:none;font-size:1rem}
     textarea{min-height:130px}
-    button{padding:14px;border:none;border-radius:12px;background:#ffcc00;font-weight:bold;cursor:pointer}
-    button:hover{background:#ffd633}
+    button{padding:14px;border:none;border-radius:12px;background:#ffd700;font-weight:bold;cursor:pointer}
+    button:hover{background:#ffea70}
 
-    footer{text-align:center;padding:30px;background:#000;color:#aaa}
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#000;
+      color:#aaa;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Global Vintage Car Collection</h1>
-  <p>More than 15 legendary automobiles from the 1800s to the 2000s</p>
+  <h1>Early Automotive History</h1>
+  <p>Rare self‑propelled vehicles & carriages from the 1700s and 1800s</p>
 </header>
 
 <section class="filters">
   <select id="eraFilter">
-    <option value="all">All Eras</option>
+    <option value="all">All Years</option>
+    <option value="1700">1700s</option>
     <option value="1800">1800s</option>
-    <option value="1900">1900s</option>
-    <option value="1930">1930s</option>
-    <option value="1950">1950s</option>
-    <option value="1960">1960s</option>
-    <option value="1970">1970s</option>
-    <option value="1980">1980s</option>
-    <option value="1990">1990s</option>
-    <option value="2000">2000s</option>
   </select>
-
-  <select id="countryFilter">
-    <option value="all">All Countries</option>
-    <option value="Germany">Germany</option>
-    <option value="USA">USA</option>
-    <option value="UK">UK</option>
-    <option value="Italy">Italy</option>
-    <option value="Japan">Japan</option>
-    <option value="France">France</option>
+  <select id="typeFilter">
+    <option value="all">All Types</option>
+    <option value="steam">Steam Powered</option>
+    <option value="electric">Electric</option>
+    <option value="gasoline">Gasoline</option>
   </select>
 </section>
 
 <section class="container">
 
 <!-- 1 -->
-<div class="card" data-era="1800" data-country="Germany">
-<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+<div class="card" data-era="1700" data-type="steam">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/CugnotSteamCarriage.jpg">
 <div class="content">
-<h2>Benz Patent Motorwagen</h2>
-<div class="meta"><span>Germany</span><span>1886</span></div>
-<p class="price">$1M+</p>
-<ul><li>Single-cylinder</li><li>0.75 HP</li><li>First automobile</li></ul>
-<p class="history">Karl Benz's invention marked the birth of the modern automobile.</p>
+<h2>Cugnot Steam Carriage</h2>
+<div class="meta"><span>France</span><span>1769</span></div>
+<p class="price">Museum Value: $2M+</p>
+<ul><li>Steam-powered</li><li>First self-propelled vehicle</li><li>3-wheel design</li></ul>
+<p class="history">Built by Nicolas-Joseph Cugnot for military transport, considered the first automobile.</p>
 </div></div>
 
 <!-- 2 -->
-<div class="card" data-era="1900" data-country="USA">
-<img src="https://images.unsplash.com/photo-1542362567-b07e54358753">
+<div class="card" data-era="1700" data-type="steam">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/32/William_Murdoch_steam_carriage.jpg">
 <div class="content">
-<h2>Ford Model T</h2>
-<div class="meta"><span>USA</span><span>1908–1927</span></div>
-<p class="price">$25k–$40k</p>
-<ul><li>2.9L I4</li><li>Mass production</li><li>Affordable car</li></ul>
-<p class="history">Made car ownership accessible to the masses.</p>
+<h2>Murdoch Steam Carriage</h2>
+<div class="meta"><span>UK</span><span>1784</span></div>
+<p class="price">Museum Value: $1.5M+</p>
+<ul><li>Steam engine</li><li>Experimental model</li><li>British innovation</li></ul>
+<p class="history">William Murdoch's model demonstrated steam-powered road travel.</p>
 </div></div>
 
 <!-- 3 -->
-<div class="card" data-era="1930" data-country="USA">
-<img src="https://images.unsplash.com/photo-1511910849309-0dffb8785146">
+<div class="card" data-era="1800" data-type="steam">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/TrevithickSteamCarriage.jpg">
 <div class="content">
-<h2>Cadillac V16</h2>
-<div class="meta"><span>USA</span><span>1930</span></div>
-<p class="price">$500k+</p>
-<ul><li>V16 engine</li><li>Luxury sedan</li><li>Art Deco design</li></ul>
-<p class="history">Symbol of American luxury during the Great Depression.</p>
+<h2>Trevithick Steam Carriage</h2>
+<div class="meta"><span>UK</span><span>1801</span></div>
+<p class="price">Museum Value: $1.8M+</p>
+<ul><li>High-pressure steam</li><li>Road locomotive</li><li>Pioneer design</li></ul>
+<p class="history">Richard Trevithick's vehicle advanced steam road engines.</p>
 </div></div>
 
 <!-- 4 -->
-<div class="card" data-era="1950" data-country="UK">
-<img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023">
+<div class="card" data-era="1800" data-type="electric">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Robert_Anderson_electric_carriage.jpg">
 <div class="content">
-<h2>Jaguar XK120</h2>
-<div class="meta"><span>UK</span><span>1948–1954</span></div>
-<p class="price">$100k+</p>
-<ul><li>3.4L I6</li><li>Fastest of its time</li><li>Sports luxury</li></ul>
-<p class="history">Post-war British engineering masterpiece.</p>
+<h2>Anderson Electric Carriage</h2>
+<div class="meta"><span>Scotland</span><span>1832</span></div>
+<p class="price">Museum Value: $1M+</p>
+<ul><li>Electric motor</li><li>Non-rechargeable batteries</li><li>Zero emissions</li></ul>
+<p class="history">One of the earliest electric vehicles ever created.</p>
 </div></div>
 
 <!-- 5 -->
-<div class="card" data-era="1950" data-country="Germany">
-<img src="https://images.unsplash.com/photo-1605559424843-9e4c0e4c3f03">
+<div class="card" data-era="1800" data-type="steam">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/RoperSteamCarriage.jpg">
 <div class="content">
-<h2>Mercedes 300SL</h2>
-<div class="meta"><span>Germany</span><span>1954</span></div>
-<p class="price">$1.2M+</p>
-<ul><li>Gullwing doors</li><li>Fuel injection</li><li>Racing heritage</li></ul>
-<p class="history">One of the most iconic cars ever built.</p>
+<h2>Roper Steam Velocipede</h2>
+<div class="meta"><span>USA</span><span>1867</span></div>
+<p class="price">Museum Value: $900k+</p>
+<ul><li>Steam motorcycle</li><li>Two wheels</li><li>Compact design</li></ul>
+<p class="history">Often considered the first motorcycle.</p>
 </div></div>
 
 <!-- 6 -->
-<div class="card" data-era="1960" data-country="Italy">
-<img src="https://images.unsplash.com/photo-1617814092784-6b27f9a7aefc">
+<div class="card" data-era="1800" data-type="electric">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flocken_Elektrowagen.jpg">
 <div class="content">
-<h2>Ferrari 250 GTO</h2>
-<div class="meta"><span>Italy</span><span>1962</span></div>
-<p class="price">$40M+</p>
-<ul><li>V12 engine</li><li>Racing legend</li><li>Ultra rare</li></ul>
-<p class="history">The most valuable collector car in history.</p>
+<h2>Flocken Elektrowagen</h2>
+<div class="meta"><span>Germany</span><span>1888</span></div>
+<p class="price">Museum Value: $1.2M+</p>
+<ul><li>Electric drive</li><li>4 wheels</li><li>Wooden body</li></ul>
+<p class="history">The world's first real electric automobile.</p>
 </div></div>
 
 <!-- 7 -->
-<div class="card" data-era="1960" data-country="Italy">
-<img src="https://images.unsplash.com/photo-1617814068732-0b56f14c6d19">
+<div class="card" data-era="1800" data-type="gasoline">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Benz_Patent_Motorwagen_Replica.jpg">
 <div class="content">
-<h2>Lamborghini Miura</h2>
-<div class="meta"><span>Italy</span><span>1966</span></div>
-<p class="price">$2M+</p>
-<ul><li>Mid-engine V12</li><li>Supercar pioneer</li><li>Exotic styling</li></ul>
-<p class="history">Considered the first true supercar.</p>
+<h2>Benz Patent Motorwagen</h2>
+<div class="meta"><span>Germany</span><span>1886</span></div>
+<p class="price">Museum Value: $1M+</p>
+<ul><li>Gasoline engine</li><li>Internal combustion</li><li>3 wheels</li></ul>
+<p class="history">First practical gasoline automobile.</p>
 </div></div>
 
 <!-- 8 -->
-<div class="card" data-era="1970" data-country="USA">
-<img src="https://images.unsplash.com/photo-1617814077635-2f2c932a0b8f">
+<div class="card" data-era="1800" data-type="gasoline">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Daimler_Motorkutsche.jpg">
 <div class="content">
-<h2>Ford Mustang Boss 302</h2>
-<div class="meta"><span>USA</span><span>1969</span></div>
-<p class="price">$120k+</p>
-<ul><li>V8 muscle</li><li>Track focused</li><li>Iconic Mustang</li></ul>
-<p class="history">Built to dominate Trans-Am racing.</p>
+<h2>Daimler Motor Carriage</h2>
+<div class="meta"><span>Germany</span><span>1886</span></div>
+<p class="price">Museum Value: $1.1M+</p>
+<ul><li>High-speed engine</li><li>Four wheels</li><li>Petrol-powered</li></ul>
+<p class="history">Helped define the modern car layout.</p>
 </div></div>
 
 <!-- 9 -->
-<div class="card" data-era="1970" data-country="UK">
-<img src="https://images.unsplash.com/photo-1605559424843-9e4c0e4c3f03">
+<div class="card" data-era="1800" data-type="electric">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Morrison_Electric_Carriage.jpg">
 <div class="content">
-<h2>Rolls-Royce Silver Shadow</h2>
-<div class="meta"><span>UK</span><span>1965</span></div>
-<p class="price">$40k+</p>
-<ul><li>Luxury sedan</li><li>V8 engine</li><li>Hand-built</li></ul>
-<p class="history">Redefined modern luxury motoring.</p>
+<h2>Morrison Electric</h2>
+<div class="meta"><span>USA</span><span>1890</span></div>
+<p class="price">Museum Value: $850k+</p>
+<ul><li>Electric propulsion</li><li>6 passengers</li><li>Silent drive</li></ul>
+<p class="history">Early American electric automobile success.</p>
 </div></div>
 
 <!-- 10 -->
-<div class="card" data-era="1980" data-country="Germany">
-<img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023">
+<div class="card" data-era="1800" data-type="steam">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Stanley_Steamer.jpg">
 <div class="content">
-<h2>BMW M3 E30</h2>
-<div class="meta"><span>Germany</span><span>1986</span></div>
-<p class="price">$150k+</p>
-<ul><li>High-rev engine</li><li>Motorsport icon</li><li>Lightweight</li></ul>
-<p class="history">One of the greatest driving cars ever made.</p>
+<h2>Stanley Steamer</h2>
+<div class="meta"><span>USA</span><span>1897</span></div>
+<p class="price">$600k+</p>
+<ul><li>Steam-powered</li><li>Fast acceleration</li><li>Luxury finish</li></ul>
+<p class="history">Steam cars rivaled gasoline in early markets.</p>
 </div></div>
 
 <!-- 11 -->
-<div class="card" data-era="1980" data-country="Japan">
-<img src="https://images.unsplash.com/photo-1617814068732-0b56f14c6d19">
+<div class="card" data-era="1800" data-type="electric">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Baker_Electric_Car.jpg">
 <div class="content">
-<h2>Toyota AE86</h2>
-<div class="meta"><span>Japan</span><span>1983</span></div>
-<p class="price">$35k+</p>
-<ul><li>Lightweight</li><li>RWD</li><li>Drift icon</li></ul>
-<p class="history">Cult classic loved by driving purists.</p>
+<h2>Baker Electric</h2>
+<div class="meta"><span>USA</span><span>1899</span></div>
+<p class="price">$750k+</p>
+<ul><li>Electric luxury</li><li>Quiet operation</li><li>Popular with elites</li></ul>
+<p class="history">Favored by Thomas Edison and Henry Ford's wife.</p>
 </div></div>
 
 <!-- 12 -->
-<div class="card" data-era="1990" data-country="Japan">
-<img src="https://images.unsplash.com/photo-1617814077635-2f2c932a0b8f">
+<div class="card" data-era="1800" data-type="gasoline">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Panhard_Levassor.jpg">
 <div class="content">
-<h2>Toyota Supra MK4</h2>
-<div class="meta"><span>Japan</span><span>1993</span></div>
-<p class="price">$120k+</p>
-<ul><li>2JZ engine</li><li>Twin turbo</li><li>Tuning legend</li></ul>
-<p class="history">A 90s performance icon.</p>
+<h2>Panhard et Levassor</h2>
+<div class="meta"><span>France</span><span>1891</span></div>
+<p class="price">$900k+</p>
+<ul><li>Front engine</li><li>Rear-wheel drive</li><li>Modern layout</li></ul>
+<p class="history">Introduced the modern car configuration.</p>
 </div></div>
 
 <!-- 13 -->
-<div class="card" data-era="1990" data-country="USA">
-<img src="https://images.unsplash.com/photo-1542362567-b07e54358753">
+<div class="card" data-era="1800" data-type="steam">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Serpollet_Steam_Car.jpg">
 <div class="content">
-<h2>Dodge Viper RT/10</h2>
-<div class="meta"><span>USA</span><span>1992</span></div>
-<p class="price">$80k+</p>
-<ul><li>V10 engine</li><li>Raw performance</li><li>American supercar</li></ul>
-<p class="history">Built with brute force and no compromises.</p>
+<h2>Serpollet Steam Car</h2>
+<div class="meta"><span>France</span><span>1898</span></div>
+<p class="price">$700k+</p>
+<ul><li>Flash steam boiler</li><li>Innovative tech</li><li>High efficiency</li></ul>
+<p class="history">Advanced steam car engineering.</p>
 </div></div>
 
 <!-- 14 -->
-<div class="card" data-era="2000" data-country="Italy">
-<img src="https://images.unsplash.com/photo-1511910849309-0dffb8785146">
+<div class="card" data-era="1800" data-type="electric">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Jeantaud_Electric_Car.jpg">
 <div class="content">
-<h2>Ferrari Enzo</h2>
-<div class="meta"><span>Italy</span><span>2002</span></div>
-<p class="price">$3M+</p>
-<ul><li>F1 technology</li><li>V12</li><li>Carbon fiber</li></ul>
-<p class="history">Ferrari's tribute to its founder.</p>
+<h2>Jeantaud Electric</h2>
+<div class="meta"><span>France</span><span>1896</span></div>
+<p class="price">$850k+</p>
+<ul><li>Electric drivetrain</li><li>Racing capable</li><li>Early EV success</li></ul>
+<p class="history">One of the fastest vehicles of its time.</p>
 </div></div>
 
 <!-- 15 -->
-<div class="card" data-era="2000" data-country="USA">
-<img src="https://images.unsplash.com/photo-1605559424843-9e4c0e4c3f03">
+<div class="card" data-era="1800" data-type="steam">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/White_Steam_Car.jpg">
 <div class="content">
-<h2>Ford GT</h2>
-<div class="meta"><span>USA</span><span>2005</span></div>
-<p class="price">$400k+</p>
-<ul><li>Supercharged V8</li><li>Le Mans heritage</li><li>Modern classic</li></ul>
-<p class="history">Modern homage to the legendary GT40.</p>
+<h2>White Steam Car</h2>
+<div class="meta"><span>USA</span><span>1898</span></div>
+<p class="price">$650k+</p>
+<ul><li>Steam-powered</li><li>Reliable design</li><li>Commercial success</li></ul>
+<p class="history">Popular early steam automobile in America.</p>
 </div></div>
 
 </section>
 
 <section class="feedback">
-  <h2>Visitor Feedback & Comments</h2>
+  <h2>Visitor Comments & Feedback</h2>
   <form onsubmit="submitFeedback(event)">
     <input type="text" placeholder="Your Name" required>
-    <textarea placeholder="Share your thoughts about vintage cars..." required></textarea>
+    <textarea placeholder="Share your thoughts on early automotive history..." required></textarea>
     <button type="submit">Submit Feedback</button>
   </form>
 </section>
 
 <footer>
-  © 2025 Global Vintage Car Museum | Automotive History Preserved
+  © 2025 Early Automotive Museum | Preserving 18th & 19th Century Mobility
 </footer>
 
 <script>
   const eraFilter=document.getElementById('eraFilter');
-  const countryFilter=document.getElementById('countryFilter');
+  const typeFilter=document.getElementById('typeFilter');
   const cards=document.querySelectorAll('.card');
 
   function applyFilters(){
     const era=eraFilter.value;
-    const country=countryFilter.value;
+    const type=typeFilter.value;
     cards.forEach(card=>{
       const okEra=era==='all'||card.dataset.era===era;
-      const okCountry=country==='all'||card.dataset.country===country;
-      card.style.display=(okEra&&okCountry)?'block':'none';
+      const okType=type==='all'||card.dataset.type===type;
+      card.style.display=(okEra&&okType)?'block':'none';
     });
   }
   eraFilter.addEventListener('change',applyFilters);
-  countryFilter.addEventListener('change',applyFilters);
+  typeFilter.addEventListener('change',applyFilters);
 
   function submitFeedback(e){
     e.preventDefault();
-    alert('Thank you for your feedback! 🚗');
+    alert('Thank you for your valuable feedback! 🚘');
     e.target.reset();
   }
 </script>
