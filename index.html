@@ -3,94 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>80s & 90s Vintage Car Collection</title>
+  <title>World Vintage Car Museum</title>
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: radial-gradient(circle at top, #1a1a1a, #000);
-      color: #f5f5f5;
+      background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
+      color: #f2f2f2;
     }
     header {
+      padding: 60px 20px;
       text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(90deg, #111, #333, #111);
+      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover no-repeat;
     }
-    header h1 { font-size: 3rem; margin-bottom: 10px; }
-    header p { color: #ccc; font-size: 1.2rem; }
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 8px #000;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      text-shadow: 1px 1px 6px #000;
+    }
 
     .filters {
       display: flex;
       gap: 15px;
-      justify-content: center;
       flex-wrap: wrap;
-      padding: 20px;
+      justify-content: center;
+      padding: 25px;
       background: #111;
     }
     select, input {
-      padding: 10px;
-      border-radius: 8px;
+      padding: 12px;
+      border-radius: 10px;
       border: none;
-      min-width: 200px;
+      min-width: 220px;
+      font-size: 1rem;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      padding: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px;
     }
+
     .card {
-      background: #1c1c1c;
-      border-radius: 18px;
+      background: #1e1e1e;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,1);
     }
     .card img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
     }
-    .card-content { padding: 18px; }
+    .card-content {
+      padding: 20px;
+    }
     .card h2 { margin-top: 0; }
-    .price { color: #ffcc00; font-weight: bold; margin: 8px 0; }
-    .year { color: #9ad1ff; font-size: 0.95rem; }
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: #9ad1ff;
+    }
+    .price {
+      color: #ffcc00;
+      font-weight: bold;
+      margin: 8px 0;
+    }
     ul { padding-left: 18px; }
     .history {
       font-size: 0.9rem;
       color: #ccc;
       margin-top: 10px;
+      line-height: 1.5;
     }
 
     .feedback {
-      padding: 40px 20px;
       background: #0f0f0f;
+      padding: 50px 20px;
     }
-    .feedback h2 { text-align: center; margin-bottom: 20px; }
+    .feedback h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
     .feedback form {
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
       display: grid;
       gap: 15px;
     }
     textarea {
+      min-height: 130px;
       resize: vertical;
-      min-height: 120px;
-      padding: 12px;
-      border-radius: 10px;
+      padding: 14px;
+      border-radius: 12px;
       border: none;
     }
     button {
-      padding: 12px;
-      border-radius: 10px;
+      padding: 14px;
+      border-radius: 12px;
       border: none;
       background: #ffcc00;
+      font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
     }
@@ -98,7 +124,7 @@
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 30px;
       color: #aaa;
       background: #000;
     }
@@ -107,125 +133,144 @@
 <body>
 
 <header>
-  <h1>80s & 90s Vintage Car Collection</h1>
-  <p>Legendary automobiles that shaped modern car culture</p>
+  <h1>World Vintage Car Museum</h1>
+  <p>A global collection of legendary vintage automobiles</p>
 </header>
 
 <section class="filters">
-  <select id="brandFilter">
-    <option value="all">All Brands</option>
-    <option value="Toyota">Toyota</option>
-    <option value="Honda">Honda</option>
-    <option value="BMW">BMW</option>
-    <option value="Ford">Ford</option>
+  <select id="countryFilter">
+    <option value="all">All Countries</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+    <option value="Germany">Germany</option>
+    <option value="Italy">Italy</option>
+    <option value="Japan">Japan</option>
   </select>
 
-  <select id="decadeFilter">
-    <option value="all">All Decades</option>
+  <select id="eraFilter">
+    <option value="all">All Eras</option>
+    <option value="1930">1930s</option>
+    <option value="1950">1950s</option>
+    <option value="1960">1960s</option>
+    <option value="1970">1970s</option>
     <option value="1980">1980s</option>
-    <option value="1990">1990s</option>
   </select>
 </section>
 
 <section class="container" id="carContainer">
 
-  <div class="card" data-brand="Toyota" data-decade="1990">
-    <img src="https://images.unsplash.com/photo-1617814077635-2f2c932a0b8f" />
+  <div class="card" data-country="USA" data-era="1930">
+    <img src="https://images.unsplash.com/photo-1542362567-b07e54358753" />
     <div class="card-content">
-      <h2>Toyota Supra MK4</h2>
-      <p class="year">1993–1998</p>
-      <p class="price">$70,000 – $150,000</p>
+      <h2>Ford Model A</h2>
+      <div class="meta"><span>USA</span><span>1927–1931</span></div>
+      <p class="price">$20,000 – $35,000</p>
       <ul>
-        <li>3.0L Twin-Turbo Inline-6</li>
-        <li>320 HP</li>
-        <li>Rear-Wheel Drive</li>
+        <li>3.3L Inline-4 Engine</li>
+        <li>Manual Transmission</li>
+        <li>Steel Body</li>
       </ul>
-      <p class="history">An icon of the 90s, famous for its reliability, tuning potential, and pop-culture legacy.</p>
+      <p class="history">The Ford Model A succeeded the Model T and brought modern styling and safety to mass-produced cars.</p>
     </div>
   </div>
 
-  <div class="card" data-brand="Honda" data-decade="1990">
-    <img src="https://images.unsplash.com/photo-1617814068732-0b56f14c6d19" />
+  <div class="card" data-country="UK" data-era="1960">
+    <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023" />
     <div class="card-content">
-      <h2>Honda NSX</h2>
-      <p class="year">1990–2001</p>
-      <p class="price">$90,000 – $180,000</p>
+      <h2>Jaguar E-Type</h2>
+      <div class="meta"><span>UK</span><span>1961–1975</span></div>
+      <p class="price">$120,000 – $200,000</p>
       <ul>
-        <li>3.0L V6 VTEC</li>
-        <li>Mid-Engine Layout</li>
-        <li>Aluminium Body</li>
+        <li>Inline-6 Engine</li>
+        <li>150 mph Top Speed</li>
+        <li>Disc Brakes</li>
       </ul>
-      <p class="history">Developed with input from Ayrton Senna, redefining Japanese supercars.</p>
+      <p class="history">Considered one of the most beautiful cars ever made, praised even by Enzo Ferrari.</p>
     </div>
   </div>
 
-  <div class="card" data-brand="BMW" data-decade="1980">
+  <div class="card" data-country="Germany" data-era="1950">
     <img src="https://images.unsplash.com/photo-1605559424843-9e4c0e4c3f03" />
     <div class="card-content">
-      <h2>BMW M3 E30</h2>
-      <p class="year">1986–1991</p>
-      <p class="price">$100,000 – $250,000</p>
+      <h2>Volkswagen Beetle</h2>
+      <div class="meta"><span>Germany</span><span>1938–2003</span></div>
+      <p class="price">$15,000 – $30,000</p>
       <ul>
-        <li>2.3L Inline-4</li>
-        <li>High-Revving Engine</li>
-        <li>Motorsport Heritage</li>
+        <li>Rear-Engine</li>
+        <li>Air-Cooled</li>
+        <li>Iconic Design</li>
       </ul>
-      <p class="history">Built for touring car racing, now one of the most collectible BMWs ever.</p>
+      <p class="history">One of the most produced cars in history, symbolizing affordable mobility worldwide.</p>
     </div>
   </div>
 
-  <div class="card" data-brand="Ford" data-decade="1980">
-    <img src="https://images.unsplash.com/photo-1617814092784-6b27f9a7aefc" />
+  <div class="card" data-country="Italy" data-era="1960">
+    <img src="https://images.unsplash.com/photo-1511910849309-0dffb8785146" />
     <div class="card-content">
-      <h2>Ford Mustang Fox Body</h2>
-      <p class="year">1979–1993</p>
-      <p class="price">$25,000 – $60,000</p>
+      <h2>Ferrari 250 GTO</h2>
+      <div class="meta"><span>Italy</span><span>1962–1964</span></div>
+      <p class="price">$40M+</p>
       <ul>
-        <li>5.0L V8</li>
-        <li>American Muscle</li>
-        <li>Lightweight Platform</li>
+        <li>3.0L V12 Engine</li>
+        <li>Racing Heritage</li>
+        <li>Ultra-Rare</li>
       </ul>
-      <p class="history">Revived the Mustang nameplate during a challenging era for muscle cars.</p>
+      <p class="history">One of the rarest and most valuable cars ever built, dominating GT racing.</p>
+    </div>
+  </div>
+
+  <div class="card" data-country="Japan" data-era="1980">
+    <img src="https://images.unsplash.com/photo-1617814077635-2f2c932a0b8f" />
+    <div class="card-content">
+      <h2>Toyota AE86</h2>
+      <div class="meta"><span>Japan</span><span>1983–1987</span></div>
+      <p class="price">$25,000 – $45,000</p>
+      <ul>
+        <li>1.6L Inline-4</li>
+        <li>Rear-Wheel Drive</li>
+        <li>Lightweight Chassis</li>
+      </ul>
+      <p class="history">A cult classic celebrated for its driving purity and motorsport influence.</p>
     </div>
   </div>
 
 </section>
 
 <section class="feedback">
-  <h2>User Feedback & Comments</h2>
+  <h2>Visitor Comments & Feedback</h2>
   <form onsubmit="submitFeedback(event)">
     <input type="text" placeholder="Your Name" required />
-    <textarea placeholder="Share your thoughts or favorite vintage car..." required></textarea>
-    <button type="submit">Submit Feedback</button>
+    <textarea placeholder="Share your feedback or favorite vintage car..." required></textarea>
+    <button type="submit">Send Feedback</button>
   </form>
 </section>
 
 <footer>
-  © 2025 Vintage Car Collection | Celebrating 80s & 90s Legends
+  © 2025 World Vintage Car Museum | Preserving Automotive History
 </footer>
 
 <script>
-  const brandFilter = document.getElementById('brandFilter');
-  const decadeFilter = document.getElementById('decadeFilter');
+  const countryFilter = document.getElementById('countryFilter');
+  const eraFilter = document.getElementById('eraFilter');
   const cards = document.querySelectorAll('.card');
 
   function applyFilters() {
-    const brand = brandFilter.value;
-    const decade = decadeFilter.value;
+    const country = countryFilter.value;
+    const era = eraFilter.value;
 
     cards.forEach(card => {
-      const matchBrand = brand === 'all' || card.dataset.brand === brand;
-      const matchDecade = decade === 'all' || card.dataset.decade === decade;
-      card.style.display = matchBrand && matchDecade ? 'block' : 'none';
+      const matchCountry = country === 'all' || card.dataset.country === country;
+      const matchEra = era === 'all' || card.dataset.era === era;
+      card.style.display = matchCountry && matchEra ? 'block' : 'none';
     });
   }
 
-  brandFilter.addEventListener('change', applyFilters);
-  decadeFilter.addEventListener('change', applyFilters);
+  countryFilter.addEventListener('change', applyFilters);
+  eraFilter.addEventListener('change', applyFilters);
 
   function submitFeedback(e) {
     e.preventDefault();
-    alert('Thank you for your feedback! 🚗');
+    alert('Thank you for sharing your thoughts! 🚗');
     e.target.reset();
   }
 </script>
