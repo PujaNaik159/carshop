@@ -1,308 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Early Vintage Cars & Carriages (1700s–1800s)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Georgia',serif;
-      background:linear-gradient(#1a1a1a,#000);
-      color:#f4f4f4;
-    }
-    header{
-      background:url('https://images.unsplash.com/photo-1520975922284-9a1bcd9c28b4') center/cover no-repeat;
-      padding:80px 20px;
-      text-align:center;
-    }
-    header h1{font-size:3rem;margin-bottom:10px}
-    header p{font-size:1.2rem;background:rgba(0,0,0,.6);display:inline-block;padding:10px 20px;border-radius:10px}
+    <title>Vintage Car Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    .filters{
-      display:flex;
-      flex-wrap:wrap;
-      gap:15px;
-      justify-content:center;
-      background:#111;
-      padding:25px;
-    }
-    select{
-      padding:12px;
-      border-radius:10px;
-      border:none;
-      min-width:220px;
-      font-size:1rem;
-    }
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    .container{
-      padding:40px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:30px;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f6f1e9;
+            color: #2b1b0f;
+        }
 
-    .card{
-      background:#1f1f1f;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 12px 30px rgba(0,0,0,.7);
-      transition:.3s;
-    }
-    .card:hover{transform:translateY(-10px)}
-    .card img{width:100%;height:220px;object-fit:cover}
-    .content{padding:20px}
-    .content h2{margin:0 0 5px}
-    .meta{display:flex;justify-content:space-between;color:#9ad1ff;font-size:.9rem}
-    .price{color:#ffd700;font-weight:bold;margin:8px 0}
-    ul{padding-left:18px}
-    .history{font-size:.9rem;color:#ccc;line-height:1.5}
+        header {
+            background-color: #1c1208;
+            color: gold;
+            padding: 15px;
+            text-align: center;
+        }
 
-    .feedback{
-      background:#0d0d0d;
-      padding:60px 20px;
-    }
-    .feedback h2{text-align:center;margin-bottom:25px}
-    .feedback form{max-width:650px;margin:auto;display:grid;gap:15px}
-    input,textarea{padding:14px;border-radius:12px;border:none;font-size:1rem}
-    textarea{min-height:130px}
-    button{padding:14px;border:none;border-radius:12px;background:#ffd700;font-weight:bold;cursor:pointer}
-    button:hover{background:#ffea70}
+        nav a {
+            color: gold;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    footer{
-      text-align:center;
-      padding:30px;
-      background:#000;
-      color:#aaa;
-    }
-  </style>
+        .hero {
+            background-image: url("https://images.unsplash.com/photo-1517142089942-ba376ce32a2e");
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background-color: gold;
+            border: none;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .cars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .car {
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .car img {
+            width: 100%;
+            height: 140px;
+        }
+
+        .car button {
+            background-color: #1c1208;
+            color: gold;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .cart {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #1c1208;
+            color: gold;
+            text-align: center;
+            padding: 15px;
+        }
+
+        input, textarea {
+            width: 95%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+    </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1>Early Automotive History</h1>
-  <p>Rare self‑propelled vehicles & carriages from the 1700s and 1800s</p>
+    <h2>Vintage Auto Shop</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#cars">Cars</a>
+        <a href="#cart">Cart</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<section class="filters">
-  <select id="eraFilter">
-    <option value="all">All Years</option>
-    <option value="1700">1700s</option>
-    <option value="1800">1800s</option>
-  </select>
-  <select id="typeFilter">
-    <option value="all">All Types</option>
-    <option value="steam">Steam Powered</option>
-    <option value="electric">Electric</option>
-    <option value="gasoline">Gasoline</option>
-  </select>
+<!-- HERO -->
+<div class="hero" id="home">
+    <h1>Timeless Classics on Wheels</h1>
+    <p>Experience luxury from the past</p>
+    <button onclick="alert('Scroll down to see cars')">View Collection</button>
+</div>
+
+<!-- CAR COLLECTION -->
+<section id="cars">
+    <h2>Vintage Car Collection</h2>
+
+    <div class="cars">
+
+        <div class="car">
+            <img src="https://via.placeholder.com/300x200">
+            <h3>Ford Model T</h3>
+            <p>Year: 1908</p>
+            <p>Country: USA</p>
+            <p>Engine: Petrol</p>
+            <p><b>$30,000</b></p>
+            <button onclick="addToCart('Ford Model T',30000)">Add to Cart</button>
+        </div>
+
+        <div class="car">
+            <img src="https://via.placeholder.com/300x200">
+            <h3>Rolls Royce Silver Ghost</h3>
+            <p>Year: 1907</p>
+            <p>Country: UK</p>
+            <p>Engine: Petrol</p>
+            <p><b>$120,000</b></p>
+            <button onclick="addToCart('Silver Ghost',120000)">Add to Cart</button>
+        </div>
+
+        <div class="car">
+            <img src="https://via.placeholder.com/300x200">
+            <h3>Mercedes Simplex</h3>
+            <p>Year: 1902</p>
+            <p>Country: Germany</p>
+            <p>Engine: Petrol</p>
+            <p><b>$85,000</b></p>
+            <button onclick="addToCart('Mercedes Simplex',85000)">Add to Cart</button>
+        </div>
+
+    </div>
 </section>
 
-<section class="container">
-
-<!-- 1 -->
-<div class="card" data-era="1700" data-type="steam">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/CugnotSteamCarriage.jpg">
-<div class="content">
-<h2>Cugnot Steam Carriage</h2>
-<div class="meta"><span>France</span><span>1769</span></div>
-<p class="price">Museum Value: $2M+</p>
-<ul><li>Steam-powered</li><li>First self-propelled vehicle</li><li>3-wheel design</li></ul>
-<p class="history">Built by Nicolas-Joseph Cugnot for military transport, considered the first automobile.</p>
-</div></div>
-
-<!-- 2 -->
-<div class="card" data-era="1700" data-type="steam">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/32/William_Murdoch_steam_carriage.jpg">
-<div class="content">
-<h2>Murdoch Steam Carriage</h2>
-<div class="meta"><span>UK</span><span>1784</span></div>
-<p class="price">Museum Value: $1.5M+</p>
-<ul><li>Steam engine</li><li>Experimental model</li><li>British innovation</li></ul>
-<p class="history">William Murdoch's model demonstrated steam-powered road travel.</p>
-</div></div>
-
-<!-- 3 -->
-<div class="card" data-era="1800" data-type="steam">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/TrevithickSteamCarriage.jpg">
-<div class="content">
-<h2>Trevithick Steam Carriage</h2>
-<div class="meta"><span>UK</span><span>1801</span></div>
-<p class="price">Museum Value: $1.8M+</p>
-<ul><li>High-pressure steam</li><li>Road locomotive</li><li>Pioneer design</li></ul>
-<p class="history">Richard Trevithick's vehicle advanced steam road engines.</p>
-</div></div>
-
-<!-- 4 -->
-<div class="card" data-era="1800" data-type="electric">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Robert_Anderson_electric_carriage.jpg">
-<div class="content">
-<h2>Anderson Electric Carriage</h2>
-<div class="meta"><span>Scotland</span><span>1832</span></div>
-<p class="price">Museum Value: $1M+</p>
-<ul><li>Electric motor</li><li>Non-rechargeable batteries</li><li>Zero emissions</li></ul>
-<p class="history">One of the earliest electric vehicles ever created.</p>
-</div></div>
-
-<!-- 5 -->
-<div class="card" data-era="1800" data-type="steam">
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/RoperSteamCarriage.jpg">
-<div class="content">
-<h2>Roper Steam Velocipede</h2>
-<div class="meta"><span>USA</span><span>1867</span></div>
-<p class="price">Museum Value: $900k+</p>
-<ul><li>Steam motorcycle</li><li>Two wheels</li><li>Compact design</li></ul>
-<p class="history">Often considered the first motorcycle.</p>
-</div></div>
-
-<!-- 6 -->
-<div class="card" data-era="1800" data-type="electric">
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flocken_Elektrowagen.jpg">
-<div class="content">
-<h2>Flocken Elektrowagen</h2>
-<div class="meta"><span>Germany</span><span>1888</span></div>
-<p class="price">Museum Value: $1.2M+</p>
-<ul><li>Electric drive</li><li>4 wheels</li><li>Wooden body</li></ul>
-<p class="history">The world's first real electric automobile.</p>
-</div></div>
-
-<!-- 7 -->
-<div class="card" data-era="1800" data-type="gasoline">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Benz_Patent_Motorwagen_Replica.jpg">
-<div class="content">
-<h2>Benz Patent Motorwagen</h2>
-<div class="meta"><span>Germany</span><span>1886</span></div>
-<p class="price">Museum Value: $1M+</p>
-<ul><li>Gasoline engine</li><li>Internal combustion</li><li>3 wheels</li></ul>
-<p class="history">First practical gasoline automobile.</p>
-</div></div>
-
-<!-- 8 -->
-<div class="card" data-era="1800" data-type="gasoline">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Daimler_Motorkutsche.jpg">
-<div class="content">
-<h2>Daimler Motor Carriage</h2>
-<div class="meta"><span>Germany</span><span>1886</span></div>
-<p class="price">Museum Value: $1.1M+</p>
-<ul><li>High-speed engine</li><li>Four wheels</li><li>Petrol-powered</li></ul>
-<p class="history">Helped define the modern car layout.</p>
-</div></div>
-
-<!-- 9 -->
-<div class="card" data-era="1800" data-type="electric">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Morrison_Electric_Carriage.jpg">
-<div class="content">
-<h2>Morrison Electric</h2>
-<div class="meta"><span>USA</span><span>1890</span></div>
-<p class="price">Museum Value: $850k+</p>
-<ul><li>Electric propulsion</li><li>6 passengers</li><li>Silent drive</li></ul>
-<p class="history">Early American electric automobile success.</p>
-</div></div>
-
-<!-- 10 -->
-<div class="card" data-era="1800" data-type="steam">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Stanley_Steamer.jpg">
-<div class="content">
-<h2>Stanley Steamer</h2>
-<div class="meta"><span>USA</span><span>1897</span></div>
-<p class="price">$600k+</p>
-<ul><li>Steam-powered</li><li>Fast acceleration</li><li>Luxury finish</li></ul>
-<p class="history">Steam cars rivaled gasoline in early markets.</p>
-</div></div>
-
-<!-- 11 -->
-<div class="card" data-era="1800" data-type="electric">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Baker_Electric_Car.jpg">
-<div class="content">
-<h2>Baker Electric</h2>
-<div class="meta"><span>USA</span><span>1899</span></div>
-<p class="price">$750k+</p>
-<ul><li>Electric luxury</li><li>Quiet operation</li><li>Popular with elites</li></ul>
-<p class="history">Favored by Thomas Edison and Henry Ford's wife.</p>
-</div></div>
-
-<!-- 12 -->
-<div class="card" data-era="1800" data-type="gasoline">
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Panhard_Levassor.jpg">
-<div class="content">
-<h2>Panhard et Levassor</h2>
-<div class="meta"><span>France</span><span>1891</span></div>
-<p class="price">$900k+</p>
-<ul><li>Front engine</li><li>Rear-wheel drive</li><li>Modern layout</li></ul>
-<p class="history">Introduced the modern car configuration.</p>
-</div></div>
-
-<!-- 13 -->
-<div class="card" data-era="1800" data-type="steam">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Serpollet_Steam_Car.jpg">
-<div class="content">
-<h2>Serpollet Steam Car</h2>
-<div class="meta"><span>France</span><span>1898</span></div>
-<p class="price">$700k+</p>
-<ul><li>Flash steam boiler</li><li>Innovative tech</li><li>High efficiency</li></ul>
-<p class="history">Advanced steam car engineering.</p>
-</div></div>
-
-<!-- 14 -->
-<div class="card" data-era="1800" data-type="electric">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Jeantaud_Electric_Car.jpg">
-<div class="content">
-<h2>Jeantaud Electric</h2>
-<div class="meta"><span>France</span><span>1896</span></div>
-<p class="price">$850k+</p>
-<ul><li>Electric drivetrain</li><li>Racing capable</li><li>Early EV success</li></ul>
-<p class="history">One of the fastest vehicles of its time.</p>
-</div></div>
-
-<!-- 15 -->
-<div class="card" data-era="1800" data-type="steam">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/White_Steam_Car.jpg">
-<div class="content">
-<h2>White Steam Car</h2>
-<div class="meta"><span>USA</span><span>1898</span></div>
-<p class="price">$650k+</p>
-<ul><li>Steam-powered</li><li>Reliable design</li><li>Commercial success</li></ul>
-<p class="history">Popular early steam automobile in America.</p>
-</div></div>
-
+<!-- CART -->
+<section id="cart">
+    <h2>Shopping Cart</h2>
+    <div class="cart">
+        <ul id="cartItems"></ul>
+        <p><b>Total: $<span id="total">0</span></b></p>
+    </div>
 </section>
 
-<section class="feedback">
-  <h2>Visitor Comments & Feedback</h2>
-  <form onsubmit="submitFeedback(event)">
-    <input type="text" placeholder="Your Name" required>
-    <textarea placeholder="Share your thoughts on early automotive history..." required></textarea>
-    <button type="submit">Submit Feedback</button>
-  </form>
+<!-- REVIEWS -->
+<section>
+    <h2>Customer Reviews</h2>
+    ⭐⭐⭐⭐⭐ Amazing collection!<br>
+    ⭐⭐⭐⭐ Authentic vintage cars!
 </section>
 
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: vintage@carshop.com</p>
+    <p>Phone: +91 9876543210</p>
+
+    <h3>Feedback</h3>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your Comment"></textarea>
+    <button onclick="alert('Thank you for your feedback')">Submit</button>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  © 2025 Early Automotive Museum | Preserving 18th & 19th Century Mobility
+    <p>© 2025 Vintage Auto Shop</p>
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-twitter"></i>
 </footer>
 
+<!-- JAVASCRIPT -->
 <script>
-  const eraFilter=document.getElementById('eraFilter');
-  const typeFilter=document.getElementById('typeFilter');
-  const cards=document.querySelectorAll('.card');
+    let total = 0;
 
-  function applyFilters(){
-    const era=eraFilter.value;
-    const type=typeFilter.value;
-    cards.forEach(card=>{
-      const okEra=era==='all'||card.dataset.era===era;
-      const okType=type==='all'||card.dataset.type===type;
-      card.style.display=(okEra&&okType)?'block':'none';
-    });
-  }
-  eraFilter.addEventListener('change',applyFilters);
-  typeFilter.addEventListener('change',applyFilters);
+    function addToCart(name, price) {
+        let item = document.createElement("li");
+        item.innerText = name + " - $" + price;
+        document.getElementById("cartItems").appendChild(item);
 
-  function submitFeedback(e){
-    e.preventDefault();
-    alert('Thank you for your valuable feedback! 🚘');
-    e.target.reset();
-  }
+        total = total + price;
+        document.getElementById("total").innerText = total;
+    }
 </script>
 
 </body>
